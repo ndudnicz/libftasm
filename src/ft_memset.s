@@ -2,6 +2,8 @@ global _ft_memset
 section .text
 
 _ft_memset:
+	test rdx, rdx
+	jz end
 	mov r11, rdi
 	mov r10, rsi
 	mov rcx, rdx
@@ -11,4 +13,8 @@ _ft_memset:
 	rep stosb
 	stosb
 	mov rax, r11
+	ret
+
+end:
+	mov rax, rdi
 	ret
